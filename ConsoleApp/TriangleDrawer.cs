@@ -16,31 +16,41 @@ namespace ConsoleApp
         {
             int padding = 0;
             
-            PrintRow(padding,size);
+            List<string> triangle = GenerateRows(padding,size);
+
+            foreach (string row in triangle)
+            {
+                Console.WriteLine(row);
+            }
+            
         }
 
 
-        public void PrintRow(int padding, int itemCount)
+        public List<string> GenerateRows(int padding, int itemCount)
         {
+            List<string> rows = new List<string>();
+            string row = "";
             if (itemCount > 1)
             {
                 var padding2 = padding + 1;
                 var itemCount2 = itemCount - 1;
-                PrintRow(padding2, itemCount2);
+                rows = GenerateRows(padding2, itemCount2);
             }
+
             
-
-            string row = "";
-            for (int i = 0; i < itemCount; i++)
-            {
-                row += "* ";
-            }
-
             for (int i = 0; i < padding; i++)
             {
                 row = " " + row;
             }
-            Console.WriteLine(row);
+            for (int i = 0; i < itemCount; i++)
+            {
+                row += "* ";
+            }
+            rows.Add(row);
+
+            
+
+            return rows;
         }
 
     }
