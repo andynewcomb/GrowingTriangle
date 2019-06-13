@@ -9,8 +9,38 @@ namespace Tests.UnitTests
     [TestFixture]
     public class TriangleDrawerTests
     {
+
+
         [Test]
-        public void DrawShape_Size1_OneRow()
+        public void GenerateRow_2padding2items()
+        {
+            //arrange
+            var triangleDrawer = new TriangleDrawer();
+
+            //act
+            var row = triangleDrawer.GenerateRow(2, 2);
+
+            //assert
+            StringAssert.AreEqualIgnoringCase("  * * ", row);
+        }
+
+        [Test]
+        public void GenerateRow_4padding10items()
+        {
+            //arrange
+            var triangleDrawer = new TriangleDrawer();
+
+            //act
+            var row = triangleDrawer.GenerateRow(4, 10);
+
+            //assert
+            StringAssert.AreEqualIgnoringCase("    * * * * * * * * * * ", row);
+        }
+
+
+
+        [Test]
+        public void GenerateRows_Size1_OneRow()
         {
             //arrange
             var triangleDrawer = new TriangleDrawer();
@@ -26,7 +56,7 @@ namespace Tests.UnitTests
         }
 
         [Test]
-        public void DrawShape_Size3_3Rows()
+        public void GenerateRows_Size3_3Rows()
         {
             //arrange
             var triangleDrawer = new TriangleDrawer();

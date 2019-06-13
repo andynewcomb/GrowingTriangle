@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace ConsoleApp
@@ -38,6 +39,17 @@ namespace ConsoleApp
             }
 
             
+            
+            rows.Add(GenerateRow(padding,itemCount));
+
+            
+
+            return rows;
+        }
+
+        public string GenerateRow(int padding, int itemCount)
+        {
+            var row = "";
             for (int i = 0; i < padding; i++)
             {
                 row = " " + row;
@@ -46,11 +58,8 @@ namespace ConsoleApp
             {
                 row += "* ";
             }
-            rows.Add(row);
 
-            
-
-            return rows;
+            return row;
         }
 
     }

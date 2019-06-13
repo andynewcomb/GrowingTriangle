@@ -20,8 +20,6 @@ namespace ConsoleApp
         
         public void Begin(int iterations)
         {
-            
-
             for (int i = 1; i <= iterations; i++)
             {
                 Task.Delay(1000).Wait();
